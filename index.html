@@ -71,23 +71,6 @@
         <button class="add-album-btn" id="addAlbumBtn" onclick="showAddAlbumPrompt()" title="Add New Album">+</button>
     </div>
 
-    <!-- Upload Modal -->
-    <div class="modal" id="uploadModal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeUploadModal()">×</button>
-            <h2>Add Images to Album</h2>
-            <div class="upload-form">
-                <div class="upload-zone" id="uploadZone">
-                    <p>Drag & drop images here or click to select</p>
-                    <input type="file" id="fileInput" multiple accept="image/*" style="display: none;">
-                </div>
-                <div class="upload-preview" id="uploadPreview"></div>
-                <div class="upload-progress" id="uploadProgress"></div>
-                <button class="upload-btn" onclick="uploadFiles()" id="uploadButton">Upload Images</button>
-            </div>
-        </div>
-    </div>
-
     <!-- Lightbox Modal -->
     <div class="lightbox" id="lightbox" onclick="closeLightbox()">
         <div class="lightbox-content">
