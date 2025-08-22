@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery - Albums</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <!-- Age Confirmation Popup -->
+    <div class="age-overlay" id="ageOverlay">
+        <div class="age-popup">
+            <h2>Age Verification</h2>
+            <p>This gallery contains content that may not be suitable for all audiences. You must be 18 years or older to continue.</p>
+            <div class="age-buttons">
+                <button class="age-btn confirm" id="confirmBtn">I am 18 or older</button>
+                <button class="age-btn deny" id="denyBtn">I am under 18</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <header class="header">
+            <button class="back-btn" id="backBtn" onclick="goBack()">← Back to Albums</button>
+            <h1 id="pageTitle">Photo Albums</h1>
+            <p id="pageSubtitle">Discover curated collections of stunning photography</p>
+        </header>
+
+        <div class="controls">
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    class="search-input" 
+                    id="searchInput" 
+                    placeholder="Search albums..."
+                    onkeyup="filterContent()"
+                >
+            </div>
+            
+            <div class="toggle-container" id="blurControls">
+                <span class="toggle-label">Blur Images</span>
+                <div class="toggle-switch" id="blurToggle" onclick="toggleBlur()">
+                    <div class="toggle-slider"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Albums View -->
+        <div class="album-container" id="albumView">
+            <div class="album-grid" id="albumGrid">
+                <!-- Albums will be populated by JavaScript -->
+            </div>
+            <div class="no-results" id="noResults" style="display: none;">
+                No albums found matching your search.
+            </div>
+        </div>
+
+        <!-- Image Gallery View -->
+        <div class="image-gallery" id="imageView">
+            <div class="image-grid" id="imageGrid">
+                <!-- Images will be populated by JavaScript -->
+            </div>
+            <div class="no-results" id="noImageResults" style="display: none;">
+                No images found matching your search.
+            </div>
+        </div>
+
+        <!-- Add Album Button -->
+        <button class="add-album-btn" id="addAlbumBtn" onclick="showAddAlbumPrompt()" title="Add New Album">+</button>
+    </div>
+
+    <!-- Upload Modal -->
+    <div class="modal" id="uploadModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeUploadModal()">×</button>
+            <h2>Add Images to Album</h2>
+            <div class="upload-form">
+                <div class="upload-zone" id="uploadZone">
+                    <p>Drag & drop images here or click to select</p>
+                    <input type="file" id="fileInput" multiple accept="image/*" style="display: none;">
+                </div>
+                <div class="upload-preview" id="uploadPreview"></div>
+                <div class="upload-progress" id="uploadProgress"></div>
+                <button class="upload-btn" onclick="uploadFiles()" id="uploadButton">Upload Images</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">×</button>
+            <img id="lightboxImage" src="" alt="">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
